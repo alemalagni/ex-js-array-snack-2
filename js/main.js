@@ -53,15 +53,14 @@ console.log('Titoli di libri con più di 300 pagine:', longBooksTitles)
 
 // Snack 2
 const availableBooks = books.filter(b => b.available)
-let discountedBooks
-availableBooks.forEach(a => {
-    let price = ((a.price.slice(0, -1)) * 0.8) * 100
-    price = price.toString()
-    price = price.slice(0, -2) + '.' + price.slice(-2) + '€'
-
-    // discountedBooks.push(price)
+const discountedBooks = availableBooks.map(a => {
+    const price = ((a.price.slice(0, -1)) * 0.8).toFixed(2)
+    return {
+        ...a,
+        price: `${price}€`
+    }
 })
-/* test */ console.log(discountedBooks)
+console.log('Libri scontati:', discountedBooks)
 
 // Snack 3
 const authors = books.map(b => b.author)
@@ -72,10 +71,10 @@ authors.sort((a, b) => {
     return areAuthorsAdult ? ageA - ageB : ageB - ageA
 })
 
-console.log(authors)
+console.log('Autori:', authors)
 
 // Snack 4
 const ages = authors.map(a => a.age)
 const agesSum = ages.reduce((acc, c) => acc + c);
 const agesAverage = agesSum / ages.length
-console.log(agesAverage)
+console.log('Èta media degli autori:', agesAverage)
