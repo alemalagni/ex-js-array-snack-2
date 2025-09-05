@@ -65,4 +65,7 @@ availableBooks.forEach(a => {
 
 // Snack 3
 const authors = books.map(b => b.author)
-/* test */ console.log(authors)
+const areAuthorsAdult = authors.every(a => a.age >= 18)
+authors.sort((a, b) => { areAuthorsAdult ? a - b : b - a })
+
+console.log(authors)
