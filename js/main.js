@@ -53,7 +53,9 @@ console.log(longBooksTitles)
 
 // Snack 2
 const availableBooks = books.filter(b => b.available)
-const discountedBooks = availableBooks.forEach(a => {
-    a.price.slice(0, -1);
+let discountedBooks = structuredClone(availableBooks);
+discountedBooks = availableBooks.forEach(a => {
+    let price = Math.round((a.price.slice(0, -1)) * 0.8)
+    discountedBooks.price = price
 })
 /* test */ console.log(discountedBooks)
