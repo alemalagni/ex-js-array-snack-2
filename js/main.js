@@ -45,3 +45,5 @@ const books = [
     },
 ];
 
+// Snack 1
+const longBooks = books.filter()
