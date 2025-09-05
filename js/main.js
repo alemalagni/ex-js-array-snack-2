@@ -53,3 +53,7 @@ console.log(longBooksTitles)
 
 // Snack 2
 const availableBooks = books.filter(b => b.available)
+const discountedBooks = availableBooks.forEach(a => {
+    a.price.slice(0, -1);
+})
+/* test */ console.log(discountedBooks)
