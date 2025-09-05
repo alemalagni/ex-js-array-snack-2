@@ -49,13 +49,20 @@ const books = [
 const longBooks = books.filter(b => b.pages > 300)
 const longBooksTitles = longBooks.map(l => l.title)
 
-console.log(longBooksTitles)
+console.log('Titoli di libri con più di 300 pagine:', longBooksTitles)
 
 // Snack 2
 const availableBooks = books.filter(b => b.available)
-let discountedBooks = structuredClone(availableBooks);
-discountedBooks = availableBooks.forEach(a => {
-    let price = Math.round((a.price.slice(0, -1)) * 0.8)
-    discountedBooks.price = price
+let discountedBooks
+availableBooks.forEach(a => {
+    let price = ((a.price.slice(0, -1)) * 0.8) * 100
+    price = price.toString()
+    price = price.slice(0, -2) + '.' + price.slice(-2) + '€'
+
+    // discountedBooks.push(price)
 })
 /* test */ console.log(discountedBooks)
+
+// Snack 3
+const authors = books.map(b => b.author)
+/* test */ console.log(authors)
