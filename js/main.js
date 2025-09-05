@@ -47,6 +47,9 @@ const books = [
 
 // Snack 1
 const longBooks = books.filter(b => b.pages > 300)
-const longBooksTitles = longBooks.map(b => b.title)
+const longBooksTitles = longBooks.map(l => l.title)
 
 console.log(longBooksTitles)
+
+// Snack 2
+const availableBooks = books.filter(b => b.available)
