@@ -60,7 +60,12 @@ const discountedBooks = availableBooks.map(a => {
         price: `${price}€`
     }
 })
-console.log('Libri scontati:', discountedBooks)
+const fullPricedBook = discountedBooks.find(d => {
+    const price = parseFloat(d.price.slice(0, -1))
+    return Number.isInteger(price)
+})
+
+console.log(fullPricedBook)
 
 // Snack 3
 const authors = books.map(b => b.author)
